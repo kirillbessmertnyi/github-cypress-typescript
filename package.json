@@ -1,0 +1,27 @@
+{
+  "name": "github-cypress-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirillbessmertnyi/github-cypress-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirillbessmertnyi/github-cypress-typescript/issues"
+  },
+  "homepage": "https://github.com/kirillbessmertnyi/github-cypress-typescript#readme",
+  "devDependencies": {
+    "cypress": "^13.7.1",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.11"
+  }
+}
