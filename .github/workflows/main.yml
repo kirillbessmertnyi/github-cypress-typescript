@@ -1,6 +1,28 @@
 name: Cypress Tests
 
-on: push
+on:
+  workflow_dispatch:
+    inputs:
+      aquaURL:
+        description: 'URL'
+        required: true
+        default: 'https://app.aqua-cloud.io/aquaWebNG'
+        type: string
+      aquaUser:
+        description: 'aquaUser'
+        required: true
+        default: '*'
+        type: string
+      aquaPassword:
+        description: 'aquaPassword'
+        required: true
+        default: '*'
+        type: string
+
+env:
+  AQUA_URL: ${{ github.event.inputs.aquaURL || 'https://app.aqua-cloud.io/aquaWebNG' }}
+  AQUA_USERNAME: ${{ github.event.inputs.aquaUser }}
+  AQUA_PASSWORD: ${{ github.event.inputs.aquaPassword }}
 
 jobs:
   cypress-run:
@@ -8,8 +30,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
+      - name: Inject env variables
+        run: |
+          echo ${{ env.AQUA_URL }}
+          echo ${{ env.AQUA_USERNAME }}
+          echo ${{ env.AQUA_PASSWORD }}
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
